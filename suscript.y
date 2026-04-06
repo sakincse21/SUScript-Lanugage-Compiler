@@ -224,7 +224,7 @@ decl_stmt
 
 assign_stmt
     : IDENTIFIER '=' expr
-      {yylineno
+      {
           if (!symbol_exists($1)) {
               fprintf(stderr,"Semantic Error at line %d: '%s' not declared\n",yylineno,$1);
               exit(1);
