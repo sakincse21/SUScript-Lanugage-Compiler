@@ -1,0 +1,51 @@
+// ============================================================
+// TEST 02 — Arithmetic Operations & Constant Folding
+// Features tested:
+//   +  -  *  /  %  (all five arithmetic operators)
+//   operator precedence (* before +)
+//   constant folding optimization
+//   integer vs float arithmetic
+// ============================================================
+
+purno asolkaj() {
+
+    lekhoLine("--- Integer Arithmetic ---");
+    purno add_result = 15 + 7;
+    purno sub_result = 15 - 7;
+    purno mul_result = 6 * 4;
+    purno div_result = 20 / 4;
+    purno mod_result = 17 % 5;
+
+    lekho("15 + 7  = "); lekhoLine(add_result);
+    lekho("15 - 7  = "); lekhoLine(sub_result);
+    lekho("6  * 4  = "); lekhoLine(mul_result);
+    lekho("20 / 4  = "); lekhoLine(div_result);
+    lekho("17 % 5  = "); lekhoLine(mod_result);
+
+    lekhoLine("--- Precedence (compile-time folded) ---");
+    purno prec1 = 2 + 3 * 4;          // 3*4=12 first, then 2+12=14
+    purno prec2 = 10 - 2 * 3;         // 2*3=6 first, then 10-6=4
+    lekho("2 + 3*4 = "); lekhoLine(prec1);
+    lekho("10 - 2*3 = "); lekhoLine(prec2);
+
+    lekhoLine("--- Float Arithmetic ---");
+    doshomik fa = 7.5 + 2.5;
+    doshomik fb = 9.0 - 3.5;
+    doshomik fc = 4.0 * 2.5;
+    doshomik fd = 9.0 / 4.0;
+    lekho("7.5 + 2.5 = "); lekhoLine(fa);
+    lekho("9.0 - 3.5 = "); lekhoLine(fb);
+    lekho("4.0 * 2.5 = "); lekhoLine(fc);
+    lekho("9.0 / 4.0 = "); lekhoLine(fd);
+
+    lekhoLine("--- Runtime Arithmetic (variables) ---");
+    purno p = 8;
+    purno q = 3;
+    lekho("p + q = "); lekhoLine(p + q);
+    lekho("p - q = "); lekhoLine(p - q);
+    lekho("p * q = "); lekhoLine(p * q);
+    lekho("p / q = "); lekhoLine(p / q);
+    lekho("p % q = "); lekhoLine(p % q);
+
+    ferot 0;
+}

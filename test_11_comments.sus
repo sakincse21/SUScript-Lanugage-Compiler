@@ -1,0 +1,37 @@
+// ============================================================
+// TEST 12 — Comments (Lexer feature)
+// Features tested:
+//   // single-line comment (ignored by lexer)
+//   /* */ multi-line block comment (ignored by lexer)
+//   comments inside code
+//   comments do not affect output
+// ============================================================
+
+// This entire line is a comment — it is completely ignored
+
+/*
+   This is a multi-line comment.
+   None of this is parsed or executed.
+   purno fake_var = 999;   <- this line does nothing
+*/
+
+purno asolkaj() {
+
+    // Single-line comment before statement
+    purno x = 10; // comment after statement
+
+    /*
+     * Block comment inside function body
+     * x = 999;   <- this would NOT run
+     */
+
+    lekho("x = "); lekhoLine(x); // should print 10
+
+    purno y = /* comment inside expression is fine in C,
+                 but in SUScript it appears between tokens */ 20;
+    lekho("y = "); lekhoLine(y);
+
+    lekhoLine("Comments do not affect program output.");
+
+    ferot 0;
+}

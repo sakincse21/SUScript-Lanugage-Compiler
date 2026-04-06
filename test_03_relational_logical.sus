@@ -1,0 +1,42 @@
+// ============================================================
+// TEST 03 — Relational & Logical Operators
+// Features tested:
+//   ==  !=  <  >  <=  >=  (six relational operators)
+//   &&  ||  !              (three logical operators)
+//   tainaki (bool) results
+// ============================================================
+
+purno asolkaj() {
+
+    purno x = 10;
+    purno y = 20;
+
+    lekhoLine("--- Relational Operators ---");
+    lekho("10 == 10 (expect 1): "); lekhoLine(x == x);
+    lekho("10 == 20 (expect 0): "); lekhoLine(x == y);
+    lekho("10 != 20 (expect 1): "); lekhoLine(x != y);
+    lekho("10  < 20 (expect 1): "); lekhoLine(x < y);
+    lekho("10  > 20 (expect 0): "); lekhoLine(x > y);
+    lekho("10 <= 10 (expect 1): "); lekhoLine(x <= x);
+    lekho("10 >= 20 (expect 0): "); lekhoLine(x >= y);
+
+    lekhoLine("--- Logical Operators ---");
+    tainaki t = shotto;
+    tainaki f = mittha;
+
+    lekho("shotto && shotto (expect 1): "); lekhoLine(t && t);
+    lekho("shotto && mittha (expect 0): "); lekhoLine(t && f);
+    lekho("mittha || shotto (expect 1): "); lekhoLine(f || t);
+    lekho("mittha || mittha (expect 0): "); lekhoLine(f || f);
+    lekho("!shotto          (expect 0): "); lekhoLine(!t);
+    lekho("!mittha          (expect 1): "); lekhoLine(!f);
+
+    lekhoLine("--- Combined Conditions ---");
+    purno a = 5;
+    purno b = 15;
+    lekho("a>0 && b>0  (expect 1): "); lekhoLine(a > 0 && b > 0);
+    lekho("a>10 || b>10 (expect 1): "); lekhoLine(a > 10 || b > 10);
+    lekho("!(a==b)      (expect 1): "); lekhoLine(!(a == b));
+
+    ferot 0;
+}

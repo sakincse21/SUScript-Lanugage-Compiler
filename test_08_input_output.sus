@@ -1,0 +1,50 @@
+// ============================================================
+// TEST 08 — Input & Output
+// Features tested:
+//   lekho   (print without newline)
+//   lekhoLine (print with newline)
+//   poro    (scan / input)
+//   printing int, float, char, bool
+//   reading int, float, char
+//   printing expressions directly
+// ============================================================
+
+purno asolkaj() {
+
+    lekhoLine("--- lekho vs lekhoLine ---");
+    lekho("This has ");
+    lekho("no newline between. ");
+    lekhoLine("This ends the line.");
+
+    lekhoLine("--- Printing different types ---");
+    purno    pi_int  = 3;
+    doshomik pi_f    = 3.14;
+    okkhor   letter  = 'Z';
+    tainaki  flag    = shotto;
+
+    lekho("int    : "); lekhoLine(pi_int);
+    lekho("float  : "); lekhoLine(pi_f);
+    lekho("char   : "); lekhoLine(letter);
+    lekho("bool   : "); lekhoLine(flag);
+
+    lekhoLine("--- Printing expressions ---");
+    lekho("5 * 6     = "); lekhoLine(5 * 6);
+    lekho("10 > 3    = "); lekhoLine(10 > 3);
+
+    lekhoLine("--- poro: reading an integer ---");
+    purno num;
+    lekhoLine("Enter an integer:");
+    poro(num);
+    lekho("You entered: "); lekhoLine(num);
+    lekho("Squared    : "); lekhoLine(num * num);
+    lekho("Times 10   : "); lekhoLine(num * 10);
+
+    lekhoLine("--- poro: reading a float ---");
+    doshomik val;
+    lekhoLine("Enter a float:");
+    poro(val);
+    lekho("You entered : "); lekhoLine(val);
+    lekho("Half of it  : "); lekhoLine(val / 2.0);
+
+    ferot 0;
+}

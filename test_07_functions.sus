@@ -1,0 +1,71 @@
+// ============================================================
+// TEST 07 — Functions
+// Features tested:
+//   typed function with return (purno, doshomik)
+//   kaj (inferred return type) function
+//   function with no parameters
+//   function with multiple parameters
+//   recursive function
+//   function calling another function
+// ============================================================
+
+// --- Typed functions ---
+purno square(purno n) {
+    ferot n * n;
+}
+
+purno add(purno x, purno y) {
+    ferot x + y;
+}
+
+purno subtract(purno x, purno y) {
+    ferot x - y;
+}
+
+doshomik circle_area(doshomik r) {
+    ferot 3.14159 * r * r;
+}
+
+// --- No-parameter function ---
+kaj greet() {
+    lekhoLine("Assalamu Alaikum from SUScript!");
+    ferot 0;
+}
+
+// --- Recursive: factorial ---
+purno factorial(purno n) {
+    jodi (n <= 1) {
+        ferot 1;
+    }
+    ferot n * factorial(n - 1);
+}
+
+// --- Function calling another function ---
+purno sum_of_squares(purno a, purno b) {
+    ferot square(a) + square(b);
+}
+
+purno asolkaj() {
+
+    lekhoLine("--- Typed Functions ---");
+    lekho("square(7)     = "); lekhoLine(square(7));
+    lekho("add(12, 8)    = "); lekhoLine(add(12, 8));
+    lekho("subtract(20,6)= "); lekhoLine(subtract(20, 6));
+
+    lekhoLine("--- Float Function ---");
+    lekho("area(5.0)     = "); lekhoLine(circle_area(5.0));
+
+    lekhoLine("--- No-param Function ---");
+    greet();
+
+    lekhoLine("--- Recursive: Factorial ---");
+    lekho("0! = "); lekhoLine(factorial(0));
+    lekho("1! = "); lekhoLine(factorial(1));
+    lekho("5! = "); lekhoLine(factorial(5));
+    lekho("7! = "); lekhoLine(factorial(7));
+
+    lekhoLine("--- Function calling Function ---");
+    lekho("sum_of_squares(3,4) = "); lekhoLine(sum_of_squares(3, 4));
+
+    ferot 0;
+}

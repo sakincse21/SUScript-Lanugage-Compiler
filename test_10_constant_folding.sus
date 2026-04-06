@@ -1,0 +1,67 @@
+// ============================================================
+// TEST 11 — Constant Folding Optimization
+// Features tested:
+//   compiler evaluates constant expressions at compile time
+//   check output.c to see literals instead of expressions
+//   int folding: + - * / %
+//   float folding: + - * /
+//   relational folding: == != < > <= >=
+//   chained folding: a + b * c (inner fold first, then outer)
+// ============================================================
+
+purno asolkaj() {
+
+    lekhoLine("--- Integer Constant Folding ---");
+    lekhoLine("(Open output.c to see that these are stored as literals)");
+    purno a = 2 + 3;          // -> 5
+    purno b = 10 - 4;         // -> 6
+    purno c = 3 * 7;          // -> 21
+    purno d = 20 / 5;         // -> 4
+    purno e = 17 % 5;         // -> 2
+
+    lekho("2 + 3  = "); lekhoLine(a);
+    lekho("10 - 4 = "); lekhoLine(b);
+    lekho("3 * 7  = "); lekhoLine(c);
+    lekho("20 / 5 = "); lekhoLine(d);
+    lekho("17 % 5 = "); lekhoLine(e);
+
+    lekhoLine("--- Chained Folding ---");
+    purno chain1 = 2 + 3 * 4;   // 3*4=12, 2+12=14
+    purno chain2 = 5 * 2 + 8;   // 5*2=10, 10+8=18
+    purno chain3 = 100 / 5 / 4; // 100/5=20, 20/4=5
+    lekho("2 + 3*4    = "); lekhoLine(chain1);
+    lekho("5*2 + 8    = "); lekhoLine(chain2);
+    lekho("100/5/4    = "); lekhoLine(chain3);
+
+    lekhoLine("--- Float Constant Folding ---");
+    doshomik fa = 1.5 + 2.5;   // -> 4
+    doshomik fb = 6.0 / 4.0;   // -> 1.5
+    doshomik fc = 2.5 * 4.0;   // -> 10
+    doshomik fd = 9.0 - 3.5;   // -> 5.5
+    lekho("1.5 + 2.5 = "); lekhoLine(fa);
+    lekho("6.0 / 4.0 = "); lekhoLine(fb);
+    lekho("2.5 * 4.0 = "); lekhoLine(fc);
+    lekho("9.0 - 3.5 = "); lekhoLine(fd);
+
+    lekhoLine("--- Relational Folding ---");
+    purno r1 = 5 > 3;    // -> 1 (true)
+    purno r2 = 5 < 3;    // -> 0 (false)
+    purno r3 = 4 == 4;   // -> 1
+    purno r4 = 4 != 4;   // -> 0
+    purno r5 = 3 <= 3;   // -> 1
+    purno r6 = 3 >= 5;   // -> 0
+    lekho("5 > 3  = "); lekhoLine(r1);
+    lekho("5 < 3  = "); lekhoLine(r2);
+    lekho("4 == 4 = "); lekhoLine(r3);
+    lekho("4 != 4 = "); lekhoLine(r4);
+    lekho("3 <= 3 = "); lekhoLine(r5);
+    lekho("3 >= 5 = "); lekhoLine(r6);
+
+    lekhoLine("--- No folding for variables (runtime) ---");
+    purno x = 7;
+    purno y = 3;
+    lekho("x + y  = "); lekhoLine(x + y);
+    lekho("x * y  = "); lekhoLine(x * y);
+
+    ferot 0;
+}

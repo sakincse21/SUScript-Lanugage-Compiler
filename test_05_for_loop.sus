@@ -1,0 +1,62 @@
+// ============================================================
+// TEST 05 — For Loop (shuru)
+// Features tested:
+//   shuru (for) with variable declaration in init
+//   thamo (break) inside for
+//   porer_bar (continue) inside for
+//   nested for loops
+//   for loop with compound assignment in iter
+// ============================================================
+
+purno asolkaj() {
+
+    lekhoLine("--- Basic shuru loop (1 to 5) ---");
+    shuru (purno i = 1; i <= 5; i++) {
+        lekho("i = "); lekhoLine(i);
+    }
+
+    lekhoLine("--- Countdown (5 to 1) ---");
+    shuru (purno i = 5; i >= 1; i--) {
+        lekho("i = "); lekhoLine(i);
+    }
+
+    lekhoLine("--- thamo (break) at i=4 ---");
+    shuru (purno i = 1; i <= 10; i++) {
+        jodi (i == 4) {
+            lekhoLine("Breaking at 4!");
+            thamo;
+        }
+        lekho("i = "); lekhoLine(i);
+    }
+
+    lekhoLine("--- porer_bar (continue): skip even numbers ---");
+    shuru (purno i = 1; i <= 8; i++) {
+        jodi (i % 2 == 0) {
+            porer_bar;
+        }
+        lekho("odd: "); lekhoLine(i);
+    }
+
+    lekhoLine("--- Step by 2 (+=) ---");
+    shuru (purno i = 0; i <= 10; i += 2) {
+        lekho("i = "); lekhoLine(i);
+    }
+
+    lekhoLine("--- Nested for (multiplication table 1-3) ---");
+    shuru (purno row = 1; row <= 3; row++) {
+        shuru (purno col = 1; col <= 3; col++) {
+            lekho(row * col);
+            lekho(" ");
+        }
+        lekhoLine("");
+    }
+
+    lekhoLine("--- Sum of 1 to 10 ---");
+    purno total = 0;
+    shuru (purno i = 1; i <= 10; i++) {
+        total += i;
+    }
+    lekho("Sum 1..10 = "); lekhoLine(total);
+
+    ferot 0;
+}

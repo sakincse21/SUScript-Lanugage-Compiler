@@ -1,0 +1,64 @@
+/*
+TEST 04 — Conditional Statements
+Features tested:
+ jodi          (if)
+ nahole jodi   (else if)
+ nahole        (else)
+ nested if inside if
+*/
+
+purno asolkaj() {
+
+    lekhoLine("--- Simple jodi (if) ---");
+    purno x = 10;
+    jodi (x > 5) {
+        lekhoLine("x is greater than 5");
+    }
+
+    lekhoLine("--- jodi / nahole (if / else) ---");
+    purno marks = 45;
+    jodi (marks >= 50) {
+        lekhoLine("Pass");
+    } nahole {
+        lekhoLine("Fail");
+    }
+
+    lekhoLine("--- jodi / nahole jodi / nahole chain ---");
+    purno score = 72;
+    jodi (score >= 90) {
+        lekhoLine("Grade: A+");
+    } nahole jodi (score >= 80) {
+        lekhoLine("Grade: A");
+    } nahole jodi (score >= 70) {
+        lekhoLine("Grade: B");
+    } nahole jodi (score >= 60) {
+        lekhoLine("Grade: C");
+    } nahole {
+        lekhoLine("Grade: F");
+    }
+
+    lekhoLine("--- Nested if ---");
+    purno age = 20;
+    tainaki hasID = shotto;
+    jodi (age >= 18) {
+        jodi (hasID) {
+            lekhoLine("Entry allowed (adult with ID)");
+        } nahole {
+            lekhoLine("No ID - entry denied");
+        }
+    } nahole {
+        lekhoLine("Under 18 - entry denied");
+    }
+
+    lekhoLine("--- if with logical condition ---");
+    purno p = 8;
+    purno q = 12;
+    jodi (p > 5 && q > 10) {
+        lekhoLine("Both conditions true");
+    }
+    jodi (p > 100 || q > 10) {
+        lekhoLine("At least one condition true");
+    }
+
+    ferot 0;
+}

@@ -1,0 +1,51 @@
+// ============================================================
+// TEST 09 — Type System & Implicit Conversion
+// Features tested:
+//   all four types: purno, doshomik, okkhor, tainaki
+//   dhoreNao (const) with each type
+//   implicit narrowing: float -> int (generates warning + cast)
+//   implicit widening:  int -> float (silent cast)
+//   bool used in arithmetic context
+// ============================================================
+
+purno asolkaj() {
+
+    lekhoLine("--- All four data types ---");
+    purno    i = 42;
+    doshomik f = 3.14;
+    okkhor   c = 'K';
+    tainaki  b = shotto;
+
+    lekho("purno    (int)  : "); lekhoLine(i);
+    lekho("doshomik (float): "); lekhoLine(f);
+    lekho("okkhor   (char) : "); lekhoLine(c);
+    lekho("tainaki  (bool) : "); lekhoLine(b);
+
+    lekhoLine("--- dhoreNao (const) for each type ---");
+    dhoreNao purno    MAX_INT   = 1000;
+    dhoreNao doshomik PI        = 3.14159;
+    dhoreNao tainaki  DEBUG_ON  = shotto;
+
+    lekho("MAX_INT   = "); lekhoLine(MAX_INT);
+    lekho("PI        = "); lekhoLine(PI);
+    lekho("DEBUG_ON  = "); lekhoLine(DEBUG_ON);
+
+    lekhoLine("--- Implicit narrowing: doshomik -> purno (shows warning) ---");
+    purno truncated = 9.99;
+    lekho("purno from 9.99 = "); lekhoLine(truncated);
+
+    purno truncated2 = 3.14;
+    lekho("purno from 3.14 = "); lekhoLine(truncated2);
+
+    lekhoLine("--- Implicit widening: purno -> doshomik (silent) ---");
+    doshomik promoted = 7;
+    lekho("doshomik from 7 = "); lekhoLine(promoted);
+
+    lekhoLine("--- Bool in arithmetic ---");
+    tainaki yes = shotto;
+    tainaki no  = mittha;
+    lekho("shotto + shotto = "); lekhoLine(yes + yes);
+    lekho("shotto + mittha = "); lekhoLine(yes + no);
+
+    ferot 0;
+}

@@ -1,0 +1,24 @@
+// ============================================================
+// TEST 13 — Semantic Error: Using Undeclared Variable
+// Features tested:
+//   compiler catches use of undeclared variable
+//   prints "Semantic Error at line N: 'var' not declared"
+//   compilation stops (no output.c generated)
+//
+// HOW TO RUN:
+//   ./suscript test_13_error_handling.sus
+//   Expected: Semantic Error at line 24: 'ghost' not declared
+//   No output.c will be created.
+// ============================================================
+
+purno asolkaj() {
+
+    purno x = 10;
+    lekho("x = "); lekhoLine(x);
+
+    // The next line uses 'ghost' which was never declared.
+    // The compiler should catch this and stop.
+    lekhoLine(ghost);
+
+    ferot 0;
+}

@@ -1,0 +1,66 @@
+// ============================================================
+// TEST 01 — Variable Declaration & Assignment
+// Features tested:
+//   purno   (int)
+//   doshomik (float)
+//   okkhor  (char)
+//   tainaki (bool)
+//   dhoreNao (const)
+//   basic assignment with =
+//   compound assignment: += -= *= /=
+//   increment ++ and decrement --
+// ============================================================
+
+
+purno asolkaj() {
+
+    // --- Integer ---
+    purno x = 10;
+    lekho("x = "); lekhoLine(x);
+
+    x = 25;
+    lekho("x after reassign = "); lekhoLine(x);
+
+    // --- Float ---
+    doshomik pi = 3.14;
+    lekho("pi = "); lekhoLine(pi);
+
+    // --- Char ---
+    okkhor grade = 'A';
+    lekho("grade = "); lekhoLine(grade);
+
+    // --- Bool ---
+    tainaki flag = shotto;
+    lekho("flag (shotto) = "); lekhoLine(flag);
+
+    tainaki flag2 = mittha;
+    lekho("flag2 (mittha) = "); lekhoLine(flag2);
+
+    // --- Const ---
+    dhoreNao purno MAX = 100;
+    lekho("MAX (const) = "); lekhoLine(MAX);
+
+    // --- Compound assignment ---
+    purno n = 20;
+    n += 5;
+    lekho("20 += 5 => "); lekhoLine(n);
+
+    n -= 3;
+    lekho("25 -= 3 => "); lekhoLine(n);
+
+    n *= 2;
+    lekho("22 *= 2 => "); lekhoLine(n);
+
+    n /= 4;
+    lekho("44 /= 4 => "); lekhoLine(n);
+
+    // --- Increment / Decrement ---
+    purno c = 5;
+    c++;
+    lekho("5++ => "); lekhoLine(c);
+
+    c--;
+    lekho("6-- => "); lekhoLine(c);
+
+    ferot 0;
+}

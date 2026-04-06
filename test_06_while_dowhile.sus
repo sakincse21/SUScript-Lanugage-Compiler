@@ -1,0 +1,63 @@
+// ============================================================
+// TEST 06 — While & Do-While Loops
+// Features tested:
+//   jotokkhon (while)
+//   koro...jotokkhon (do-while) — runs body at least once
+//   thamo (break) inside while
+//   porer_bar (continue) inside while
+// ============================================================
+
+purno asolkaj() {
+
+    lekhoLine("--- Basic jotokkhon (while) ---");
+    purno i = 1;
+    jotokkhon (i <= 5) {
+        lekho("i = "); lekhoLine(i);
+        i++;
+    }
+
+    lekhoLine("--- While with thamo (break) ---");
+    purno n = 1;
+    jotokkhon (n <= 100) {
+        jodi (n > 5) {
+            lekhoLine("Breaking because n > 5");
+            thamo;
+        }
+        lekho("n = "); lekhoLine(n);
+        n++;
+    }
+
+    lekhoLine("--- While with porer_bar (continue): print non-multiples of 3 ---");
+    purno k = 1;
+    jotokkhon (k <= 10) {
+        jodi (k % 3 == 0) {
+            k++;
+            porer_bar;
+        }
+        lekho("k = "); lekhoLine(k);
+        k++;
+    }
+
+    lekhoLine("--- koro-jotokkhon (do-while): runs at least once ---");
+    purno x = 10;
+    koro {
+        lekho("x = "); lekhoLine(x);
+        x++;
+    } jotokkhon (x < 13);
+
+    lekhoLine("--- do-while when condition is false from start ---");
+    purno y = 99;
+    koro {
+        lekhoLine("This prints once even though condition is false");
+        y++;
+    } jotokkhon (y < 10);
+
+    lekhoLine("--- While: find first power of 2 > 100 ---");
+    purno pow = 1;
+    jotokkhon (pow <= 100) {
+        pow = pow * 2;
+    }
+    lekho("First power of 2 > 100: "); lekhoLine(pow);
+
+    ferot 0;
+}
